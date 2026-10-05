@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ThenukaS.L | Ultimate Sri Lanka Maps</title>
+  <meta name="description" content="ThenukaS.L Google Maps style Sri Lanka places, search, nearby locations, directions and Street View.">
+  <meta name="author" content="Thenuka Sathmitha Jayasinghe">
+  <meta name="creator" content="Thenuka Sathmitha Jayasinghe">
+  <meta property="og:site_name" content="ThenukaS.L">
+  <meta property="og:title" content="ThenukaS.L | Ultimate Sri Lanka Maps">
+  <meta property="og:description" content="ThenukaS.L — Sri Lanka maps, places, locations, search, nearby places, directions and Street View.">
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"ThenukaS.L",
+    "description":"ThenukaS.L — Sri Lanka maps, places, locations, search, nearby places, directions and Street View.",
+    "creator":{
+      "@type":"Person",
+      "name":"Thenuka Sathmitha Jayasinghe"
+    },
+    "copyrightHolder":{
+      "@type":"Person",
+      "name":"Thenuka Sathmitha Jayasinghe"
+    }
+  }
+  </script>
+  <style>
+    :root{--bg:#07111f;--panel:#0c1728;--panel2:#101d31;--line:#22324a;--text:#f8fafc;--muted:#94a3b8;--blue:#1a73e8;--cyan:#38bdf8;--green:#22c55e;--red:#ef4444;--shadow:0 20px 60px rgba(0,0,0,.38)}
+    *{box-sizing:border-box}html,body{margin:0;height:100%;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
+    button,input{font:inherit}.app{height:100vh;display:flex;flex-direction:column;overflow:hidden}
+    .topbar{height:72px;display:flex;align-items:center;gap:16px;padding:10px 18px;background:rgba(7,17,31,.97);border-bottom:1px solid var(--line);z-index:30}
+    .brand{display:flex;align-items:center;gap:10px;min-width:205px}.logo{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,#0ea5e9,#2563eb);box-shadow:0 0 25px rgba(14,165,233,.35);font-weight:900}.brand b{font-size:20px}.brand small{display:block;color:var(--muted);font-size:10px;margin-top:2px;letter-spacing:.6px}
+    .search-wrap{position:relative;flex:1;max-width:820px}.search-box{height:50px;background:#fff;border-radius:14px;display:flex;align-items:center;padding:0 8px 0 15px;color:#111;box-shadow:0 8px 25px rgba(0,0,0,.25)}.search-icon{font-size:20px;color:#64748b;margin-right:10px}.search-box input{border:0;outline:0;flex:1;min-width:0;font-size:15px;background:transparent;color:#111}.search-box button{border:0;background:var(--blue);color:#fff;border-radius:10px;padding:11px 18px;font-weight:750;cursor:pointer}.search-box button:hover{filter:brightness(1.08)}
+    .suggestions{position:absolute;left:0;right:0;top:56px;background:#fff;color:#111;border-radius:12px;box-shadow:0 18px 45px rgba(0,0,0,.35);overflow:hidden;display:none;z-index:50}.suggestions.show{display:block}.suggestion{padding:12px 15px;border-bottom:1px solid #e5e7eb;cursor:pointer}.suggestion:last-child{border-bottom:0}.suggestion:hover{background:#f1f5f9}.suggestion b{display:block}.suggestion span{font-size:12px;color:#64748b}
+    .top-actions{display:flex;gap:8px;margin-left:auto}.btn{border:1px solid var(--line);background:var(--panel2);color:#fff;border-radius:11px;padding:10px 12px;cursor:pointer}.btn:hover{border-color:#3b82f6}.btn.primary{background:var(--blue);border-color:var(--blue)}
+    .main{flex:1;display:grid;grid-template-columns:320px minmax(0,1fr) 360px;min-height:0}.left,.right{background:var(--panel);overflow:auto}.left{border-right:1px solid var(--line)}.right{border-left:1px solid var(--line)}
+    .section{padding:15px 16px;border-bottom:1px solid rgba(255,255,255,.04)}.section h3{margin:0 0 11px;font-size:14px}.chips{display:grid;grid-template-columns:1fr 1fr;gap:8px}.chip{border:1px solid var(--line);background:#101c2e;color:#dbe4f0;padding:10px 9px;border-radius:10px;cursor:pointer;text-align:left;font-size:12px}.chip:hover,.chip.active{background:#12345d;border-color:#3285e9;color:#fff}.tool-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.tool{padding:10px;border:1px solid var(--line);border-radius:10px;background:#0f1a2b;color:#dbe4f0;cursor:pointer;font-size:12px}.tool:hover{border-color:var(--cyan)}
+    .status{padding:11px 12px;border-radius:10px;background:#091524;border:1px solid var(--line);color:var(--muted);font-size:12px;line-height:1.5}.api-warning{border-color:#7f1d1d;background:#2a1014;color:#fecaca}.ok{border-color:#14532d;background:#0a2115;color:#bbf7d0}
+    .map-area{position:relative;min-width:0;min-height:0;background:#dbeafe}.map{width:100%;height:100%;min-height:420px}.map-overlay{position:absolute;left:14px;bottom:15px;z-index:5;display:flex;gap:8px;flex-wrap:wrap}.map-pill{border:1px solid rgba(255,255,255,.2);background:rgba(7,17,31,.9);backdrop-filter:blur(10px);color:#fff;padding:9px 11px;border-radius:10px;cursor:pointer;font-size:12px}.map-pill:hover{border-color:var(--cyan)}
+    .loading{position:absolute;inset:0;display:none;place-items:center;background:rgba(7,17,31,.28);z-index:10;pointer-events:none}.loading.show{display:grid}.spinner{width:42px;height:42px;border:4px solid rgba(255,255,255,.25);border-top-color:var(--cyan);border-radius:50%;animation:spin 1s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+    .results-head{display:flex;justify-content:space-between;align-items:center;padding:16px;border-bottom:1px solid var(--line)}.results-head h2{font-size:16px;margin:0}.results-head span{color:var(--muted);font-size:12px}.results{padding:12px}.card{background:#101b2c;border:1px solid var(--line);border-radius:14px;padding:12px;margin-bottom:10px;cursor:pointer;transition:.18s}.card:hover{transform:translateY(-1px);border-color:#2b78e4}.card-row{display:flex;gap:10px}.thumb{width:74px;height:74px;border-radius:10px;object-fit:cover;background:#172338;flex:none}.card h4{margin:0 0 5px;font-size:14px}.card p{margin:3px 0;color:var(--muted);font-size:11px;line-height:1.35}.rating{color:#fbbf24;font-weight:700}.badge{display:inline-block;margin-top:6px;padding:3px 7px;border-radius:5px;background:#12355b;color:#7dd3fc;font-size:10px}.empty{text-align:center;color:var(--muted);padding:35px 18px;font-size:13px}.results-tools{display:flex;gap:7px;padding:10px 12px;border-bottom:1px solid var(--line)}.mini{border:1px solid var(--line);background:#101c2e;color:#dbe4f0;border-radius:8px;padding:7px 9px;cursor:pointer;font-size:11px}.mini:hover{border-color:var(--cyan)}
+    .detail{display:none;position:fixed;inset:0;background:rgba(0,0,0,.68);z-index:100;align-items:center;justify-content:center;padding:18px}.detail.show{display:flex}.detail-card{width:min(760px,100%);max-height:92vh;overflow:auto;background:#0c1728;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}.detail-photo{width:100%;height:270px;object-fit:cover;background:#132035}.detail-body{padding:20px}.detail h2{margin:0 50px 5px 0;font-size:25px}.sub{color:var(--muted);font-size:13px;margin-bottom:14px}.close{position:absolute;right:18px;top:18px;border:0;background:rgba(0,0,0,.68);color:#fff;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:22px}.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}.info{border:1px solid var(--line);border-radius:11px;padding:12px;background:#101c2e}.info b{display:block;font-size:10px;color:var(--muted);text-transform:uppercase;margin-bottom:4px}.info span{font-size:13px}.hours{line-height:1.55}.actions{display:flex;gap:8px;flex-wrap:wrap}.action{border:0;border-radius:10px;padding:11px 14px;background:var(--blue);color:#fff;text-decoration:none;font-weight:700;font-size:12px;cursor:pointer}.action.alt{background:#17263b;border:1px solid var(--line)}.reviews{margin-top:16px}.review{border-top:1px solid var(--line);padding:10px 0}.review b{font-size:12px}.review p{color:#cbd5e1;font-size:12px;margin:5px 0;line-height:1.5}
+    .toast{position:fixed;right:18px;bottom:18px;z-index:200;max-width:360px;padding:12px 15px;background:#0b1728;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);display:none;color:#e2e8f0;font-size:12px}.toast.show{display:block}.toast.error{border-color:#7f1d1d;color:#fecaca}
+
+    .site-footer{height:42px;flex:0 0 42px;display:flex;align-items:center;justify-content:center;padding:0 16px;background:#050d18;border-top:1px solid var(--line);color:#94a3b8;font-size:12px;text-align:center;letter-spacing:.1px;z-index:20}.site-footer strong{color:#f8fafc}.site-footer .dot{margin:0 7px;color:#38bdf8}.site-footer a{color:#38bdf8;text-decoration:none}.site-footer a:hover{text-decoration:underline}@media(max-width:760px){.site-footer{height:auto;min-height:44px;flex:0 0 auto;padding:10px 12px;line-height:1.45}}
+    @media(max-width:1150px){.main{grid-template-columns:280px minmax(0,1fr)}.right{display:none}}@media(max-width:760px){.app{height:auto;min-height:100vh;overflow:auto}.topbar{height:auto;flex-wrap:wrap;padding:10px}.brand{min-width:auto}.top-actions{margin-left:0}.search-wrap{order:3;flex-basis:100%;max-width:none}.main{display:flex;flex-direction:column}.left{display:block;border-right:0;border-bottom:1px solid var(--line)}.map-area{height:62vh;min-height:450px}.right{display:block;border-left:0;border-top:1px solid var(--line);max-height:55vh}.map-overlay{bottom:10px;left:10px}.info-grid{grid-template-columns:1fr}.detail{padding:8px}.detail-photo{height:210px}}
+  </style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><div class="logo">TS</div><div><b>ThenukaS.L</b><small>ULTIMATE SRI LANKA MAP</small></div></div>
+    <div class="search-wrap">
+      <div class="search-box"><span class="search-icon">⌕</span><input id="searchInput" autocomplete="off" placeholder="Search places, towns, hotels, restaurants, hospitals..."><button id="searchBtn">Search</button></div>
+      <div class="suggestions" id="suggestions"></div>
+    </div>
+    <div class="top-actions"><button class="btn" id="myLocation">◎ My location</button><button class="btn" id="trafficBtn">🚦 Traffic</button></div>
+  </header>
+
+  <main class="main">
+    <aside class="left">
+      <div class="section"><h3>Explore nearby</h3><div class="chips" id="categoryChips">
+        <button class="chip" data-type="restaurant">🍴 Restaurants</button><button class="chip" data-type="cafe">☕ Cafes</button>
+        <button class="chip" data-type="hotel">🏨 Hotels</button><button class="chip" data-type="hospital">🏥 Hospitals</button>
+        <button class="chip" data-type="pharmacy">💊 Pharmacies</button><button class="chip" data-type="bank">🏦 Banks</button>
+        <button class="chip" data-type="atm">💳 ATMs</button><button class="chip" data-type="gas_station">⛽ Fuel</button>
+        <button class="chip" data-type="supermarket">🛒 Supermarkets</button><button class="chip" data-type="tourist_attraction">📍 Attractions</button>
+        <button class="chip" data-type="school">🎓 Schools</button><button class="chip" data-type="police">🚓 Police</button>
+      </div></div>
+      <div class="section"><h3>Map tools</h3><div class="tool-grid">
+        <button class="tool" id="sriLanka">🇱🇰 Sri Lanka</button><button class="tool" id="zoomMe">🔎 Zoom to me</button>
+        <button class="tool" id="streetView">🧍 Street View</button><button class="tool" id="clearResults">✕ Clear results</button>
+        <button class="tool" id="directionsBtn">🧭 Directions</button><button class="tool" id="shareBtn">↗ Share map</button>
+      </div></div>
+      <div class="section"><div class="status" id="status">Starting…</div></div>
+      <div class="section"><h3>API setup</h3><div class="status" id="apiStatus">Google Maps requires your own API key. See the setup note at the bottom of this file.</div></div>
+    </aside>
+
+    <section class="map-area"><div id="map" class="map"></div><div class="loading" id="loading"><div class="spinner"></div></div>
+      <div class="map-overlay"><button class="map-pill" id="mapRoad">🗺 Road</button><button class="map-pill" id="mapSatellite">🛰 Satellite</button><button class="map-pill" id="mapHybrid">🌍 Hybrid</button><button class="map-pill" id="mapTerrain">⛰ Terrain</button></div>
+    </section>
+
+    <aside class="right"><div class="results-head"><h2>Places</h2><span id="resultCount">0 results</span></div><div class="results-tools"><button class="mini" id="sortRating">⭐ Best rated</button><button class="mini" id="sortDistance">📍 Distance</button></div><div class="results" id="results"><div class="empty">Search for a place or choose a nearby category.</div></div></aside>
+  </main>
+  <footer class="site-footer" aria-label="Website ownership">
+    <span>© <span id="footerYear">2026</span> ThenukaS.L</span><span class="dot">•</span><span>Designed, Created &amp; Owned by <strong>Thenuka Sathmitha Jayasinghe</strong></span>
+  </footer>
+</div>
+
+<div class="detail" id="detail"><div class="detail-card" id="detailCard"></div></div><div class="toast" id="toast"></div>
+
+<script>
+/* ==============================================================
+   THENUKA S.L — ULTIMATE GOOGLE MAPS STYLE VERSION
+   IMPORTANT: replace the API key below with your own key.
+   Required Google Cloud APIs:
+     - Maps JavaScript API
+     - Places API
+     - Places API (New)
+     - Geocoding API (recommended for map-click addresses)
+   Billing must be enabled on the Google Cloud project.
+   For production, restrict the browser key by HTTP referrers.
+   ============================================================= */
+const GOOGLE_MAPS_API_KEY = "PASTE_YOUR_GOOGLE_MAPS_API_KEY_HERE";
+const MAP_ID = "DEMO_MAP_ID"; // Advanced markers can use the demo ID for testing.
+const SRI_LANKA = {lat:7.8731,lng:80.7718};
+
+let map=null, infoWindow=null, trafficLayer=null, geocoder=null, AdvancedMarkerElement=null;
+let markers=[], currentLocation=null, userMarker=null, selectedPlaces=[];
+let autocompleteElement=null;
+const $=id=>document.getElementById(id);
+
+function status(msg){$("status").textContent=msg}
+function loading(on){$("loading").classList.toggle("show",on)}
+function toast(msg,error=false){const t=$("toast");t.textContent=msg;t.className="toast show"+(error?" error":"");clearTimeout(toast.timer);toast.timer=setTimeout(()=>t.classList.remove("show"),4200)}
+function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[c]))}
+function attr(v){return esc(v).replace(/`/g,"&#096;")}
+function normalizeType(t){return String(t||"place").replaceAll("_"," ")}
+
+async function initThenukaMap(){
+  if(GOOGLE_MAPS_API_KEY.includes("PASTE_YOUR")){
+    status("API key missing — add your Google Maps key to the code.");
+    $("apiStatus").className="status api-warning";
+    $("apiStatus").innerHTML="<b>API key missing.</b><br>Open this HTML file and replace <code>PASTE_YOUR_GOOGLE_MAPS_API_KEY_HERE</code>. Then run it with Live Server or another local web server.";
+    $("map").innerHTML='<div style="height:100%;display:grid;place-items:center;text-align:center;padding:30px;color:#475569;background:#e2e8f0"><div><b style="font-size:22px">ThenukaS.L Maps</b><br><br>Google Maps API key එක add කළාම map එක මෙතන වැඩ කරයි.</div></div>';
+    return;
+  }
+  try{
+    const [{Map,InfoWindow,TrafficLayer}, {AdvancedMarkerElement:AME}, {Geocoder}, {Place}]=await Promise.all([
+      google.maps.importLibrary("maps"),google.maps.importLibrary("marker"),google.maps.importLibrary("geocoding"),google.maps.importLibrary("places")
+    ]);
+    AdvancedMarkerElement=AME;
+    map=new Map($("map"),{center:SRI_LANKA,zoom:8,mapId:MAP_ID,streetViewControl:true,fullscreenControl:true,zoomControl:true,mapTypeControl:false,clickableIcons:true,gestureHandling:"greedy"});
+    infoWindow=new InfoWindow();trafficLayer=new TrafficLayer();geocoder=new Geocoder();
+    wireUI();
+    await setupAutocomplete();
+    status("Ready — search any place in Google Maps Places.");
+    $("apiStatus").className="status ok";$("apiStatus").innerHTML="<b>Google Maps loaded.</b><br>Search, nearby places, directions, traffic, Street View and place details are ready.";
+  }catch(err){console.error(err);status("Google Maps could not start.");$("apiStatus").className="status api-warning";$("apiStatus").innerHTML="<b>Google Maps error.</b><br>Check the API key, billing, API restrictions and enabled APIs.";toast("Google Maps failed to load. Open F12 → Console for the exact Google error.",true)}
+}
+
+function wireUI(){
+  $("searchBtn").onclick=searchText;
+  $("searchInput").addEventListener("keydown",e=>{if(e.key==="Enter")searchText()});
+  $("searchInput").addEventListener("input",()=>{if(!autocompleteElement && $("searchInput").value.trim().length<2) $("suggestions").classList.remove("show")});
+  $("myLocation").onclick=locateMe;
+  $("zoomMe").onclick=()=>currentLocation?(map.panTo(currentLocation),map.setZoom(16)):locateMe();
+  $("sriLanka").onclick=()=>{clearMarkers();map.setCenter(SRI_LANKA);map.setZoom(8);status("Showing Sri Lanka.")};
+  $("clearResults").onclick=()=>{clearMarkers();selectedPlaces=[];renderResults([]);status("Results cleared.")};
+  $("trafficBtn").onclick=()=>{const on=!!trafficLayer.getMap();trafficLayer.setMap(on?null:map);$("trafficBtn").textContent=on?"🚦 Traffic":"🚦 Traffic ON"};
+  $("mapRoad").onclick=()=>map.setMapTypeId("roadmap");$("mapSatellite").onclick=()=>map.setMapTypeId("satellite");$("mapHybrid").onclick=()=>map.setMapTypeId("hybrid");$("mapTerrain").onclick=()=>map.setMapTypeId("terrain");
+  $("streetView").onclick=()=>{if(!currentLocation){toast("First click My location or select a place.",true);return}openStreetView(currentLocation.lat,currentLocation.lng)};
+  $("directionsBtn").onclick=()=>openDirections();
+  $("shareBtn").onclick=shareMap;
+  $("sortRating").onclick=()=>{selectedPlaces.sort((a,b)=>(b.rating||0)-(a.rating||0));renderResults(selectedPlaces)};
+  $("sortDistance").onclick=()=>{if(!map)return;const c=map.getCenter();selectedPlaces.sort((a,b)=>distanceMeters(c,a.location)-distanceMeters(c,b.location));renderResults(selectedPlaces)};
+  document.querySelectorAll(".chip").forEach(b=>b.onclick=()=>{document.querySelectorAll(".chip").forEach(x=>x.classList.remove("active"));b.classList.add("active");nearby(b.dataset.type)});
+  $("detail").addEventListener("click",e=>{if(e.target.id==="detail")closeDetail()});
+  map.addListener("click",mapClick);
+}
+
+async function setupAutocomplete(){
+  // The new Place Autocomplete widget is used when supported. The normal search button still works as a fallback.
+  try{
+    const {PlaceAutocompleteElement}=await google.maps.importLibrary("places");
+    if(!PlaceAutocompleteElement)return;
+    const host=document.createElement("div");host.style.display="none";
+    document.body.appendChild(host);
+    autocompleteElement=new PlaceAutocompleteElement();
+    autocompleteElement.placeholder="Search places…";
+    host.appendChild(autocompleteElement);
+    autocompleteElement.addEventListener("gmp-select",async({placePrediction})=>{
+      try{const place=placePrediction.toPlace();await place.fetchFields({fields:["displayName","formattedAddress","location","viewport","rating","userRatingCount","photos","businessStatus","types","internationalPhoneNumber","nationalPhoneNumber","websiteURI","regularOpeningHours","priceLevel","googleMapsURI","reviews"]});await showPlace(place)}catch(e){console.error(e);toast("Could not open the selected place.",true)}
+    });
+  }catch(e){console.warn("Autocomplete widget unavailable; text search remains available.",e)}
+}
+
+async function searchText(){
+  const q=$("searchInput").value.trim();if(!q){toast("Type a place name first.",true);return}
+  loading(true);status(`Searching for “${q}”…`);hideSuggestions();
+  try{
+    const {Place}=await google.maps.importLibrary("places");
+    const req={textQuery:q,fields:placeFields(),maxResultCount:20,rankPreference:"RELEVANCE",locationBias:{center:map.getCenter(),radius:50000}};
+    const {places=[]}=await Place.searchByText(req);
+    clearMarkers();selectedPlaces=places;renderResults(places);addPlaceMarkers(places);
+    fitPlaces(places);status(places.length?`${places.length} places found.`:"No places found. Try another search.");
+  }catch(e){console.error(e);status("Search failed — check Places API (New), billing and API restrictions.");toast("Google Places search failed. Check F12 → Console for the exact error.",true);renderResults([])}finally{loading(false)}
+}
+
+async function nearby(type){
+  loading(true);const center=currentLocation||{lat:map.getCenter().lat(),lng:map.getCenter().lng()};status(`Finding nearby ${normalizeType(type)}…`);
+  try{
+    const {Place}=await google.maps.importLibrary("places");
+    const req={fields:placeFields(),includedPrimaryTypes:[type],locationRestriction:{center,radius:5000},maxResultCount:20,rankPreference:"DISTANCE"};
+    const {places=[]}=await Place.searchNearby(req);
+    clearMarkers();selectedPlaces=places;renderResults(places);addPlaceMarkers(places);fitPlaces(places);
+    status(places.length?`${places.length} nearby ${normalizeType(type)} found.`:`No nearby ${normalizeType(type)} found.`);
+  }catch(e){console.error(e);status("Nearby search failed.");toast("Nearby search failed. Make sure Places API (New) is enabled and this place type is supported.",true)}finally{loading(false)}
+}
+
+function placeFields(){return ["displayName","formattedAddress","location","viewport","rating","userRatingCount","photos","businessStatus","types","internationalPhoneNumber","nationalPhoneNumber","websiteURI","regularOpeningHours","priceLevel","googleMapsURI"]}
+function addPlaceMarkers(places){places.forEach((p,i)=>{if(!p.location)return;const marker=new AdvancedMarkerElement({map,position:p.location,title:p.displayName||"Place"});marker.addListener("click",()=>showPlace(p));markers.push(marker)})}
+function clearMarkers(){markers.forEach(m=>m.map=null);markers=[];if(userMarker){userMarker.map=null;userMarker=null}}
+function fitPlaces(places){const valid=places.filter(p=>p.location);if(!valid.length)return;if(valid.length===1){map.panTo(valid[0].location);map.setZoom(16);return}const b=new google.maps.LatLngBounds();valid.forEach(p=>b.extend(p.location));map.fitBounds(b,60)}
+function renderResults(places){
+  $("resultCount").textContent=`${places.length} result${places.length===1?"":"s"}`;const box=$("results");box.innerHTML="";
+  if(!places.length){box.innerHTML='<div class="empty">No results. Search for a place or choose a nearby category.</div>';return}
+  places.forEach(p=>{const card=document.createElement("div");card.className="card";const photo=getPhoto(p,180,180);const rating=p.rating?`<span class="rating">★ ${p.rating.toFixed(1)}</span>${p.userRatingCount?` (${p.userRatingCount.toLocaleString()})`:""}`:"No rating";const type=normalizeType(p.types?.[0]||"place");card.innerHTML=`<div class="card-row"><img class="thumb" src="${attr(photo)}" alt="" onerror="this.src='https://placehold.co/180x180/132035/ffffff?text=ThenukaS.L'"><div style="min-width:0"><h4>${esc(p.displayName||"Unnamed place")}</h4><p>${rating}</p><p>${esc(p.formattedAddress||"Address unavailable")}</p><span class="badge">${esc(type)}</span></div></div>`;card.onclick=()=>{if(p.location){map.panTo(p.location);map.setZoom(16)}showPlace(p)};box.appendChild(card)})
+}
+function getPhoto(p,w=900,h=600){try{if(p.photos?.length)return p.photos[0].getURI({maxWidth:w,maxHeight:h})}catch(e){}return "https://placehold.co/900x600/132035/ffffff?text=ThenukaS.L"}
+
+async function showPlace(place){
+  try{await place.fetchFields({fields:[...placeFields(),"reviews"]})}catch(e){console.warn("Place details:",e)}
+  if(place.location){map.panTo(place.location);map.setZoom(17)}
+  const photo=getPhoto(place,1100,700);const rating=place.rating?`★ ${place.rating.toFixed(1)}${place.userRatingCount?` (${place.userRatingCount.toLocaleString()} reviews)`:""}`:"No rating";
+  const phone=place.internationalPhoneNumber||place.nationalPhoneNumber||"Not available";const statusText=normalizeType(place.businessStatus||"UNKNOWN");
+  const hours=place.regularOpeningHours?.weekdayDescriptions?.map(x=>esc(x)).join("<br>")||"Opening hours unavailable";
+  const directions=place.location?`https://www.google.com/maps/dir/?api=1&destination=${place.location.lat()},${place.location.lng()}`:(place.googleMapsURI||"#");
+  const maps=place.googleMapsURI||directions;const website=place.websiteURI?`<a class="action alt" href="${attr(place.websiteURI)}" target="_blank" rel="noopener">🌐 Website</a>`:"";
+  let reviews="";if(place.reviews?.length)reviews=place.reviews.slice(0,5).map(r=>`<div class="review"><b>${esc(r.authorAttribution?.displayName||"Google user")} · ${r.rating?"★".repeat(Math.round(r.rating)):""}</b><p>${esc(r.text?.text||r.text||"")}</p></div>`).join("");
+  $("detailCard").innerHTML=`<div style="position:relative"><img class="detail-photo" src="${attr(photo)}" alt="${esc(place.displayName||"")}" onerror="this.src='https://placehold.co/1100x700/132035/ffffff?text=ThenukaS.L'"><button class="close" onclick="closeDetail()">×</button></div><div class="detail-body"><h2>${esc(place.displayName||"Place")}</h2><div class="sub">📍 ${esc(place.formattedAddress||"Address unavailable")}</div><div class="info-grid"><div class="info"><b>Rating</b><span>${rating}</span></div><div class="info"><b>Status</b><span>${esc(statusText)}</span></div><div class="info"><b>Phone</b><span>${esc(phone)}</span></div><div class="info"><b>Category</b><span>${esc((place.types||[]).slice(0,4).map(normalizeType).join(", ")||"Place")}</span></div><div class="info" style="grid-column:1/-1"><b>Opening hours</b><span class="hours">${hours}</span></div></div><div class="actions"><a class="action" href="${attr(directions)}" target="_blank" rel="noopener">🧭 Directions</a><a class="action alt" href="${attr(maps)}" target="_blank" rel="noopener">📍 Google Maps</a>${website}${place.location?`<button class="action alt" onclick="openStreetView(${place.location.lat()},${place.location.lng()})">🧍 Street View</button>`:""}</div>${reviews?`<div class="reviews"><h3>Reviews</h3>${reviews}</div>`:""}</div>`;
+  $("detail").classList.add("show");
+}
+function closeDetail(){$("detail").classList.remove("show")}
+function openStreetView(lat,lng){closeDetail();const sv=new google.maps.StreetViewPanorama($("map"),{position:{lat,lng},pov:{heading:0,pitch:0},zoom:1});map.setStreetView(sv)}
+
+function locateMe(){
+  if(!navigator.geolocation){toast("This browser does not support location.",true);return}
+  status("Requesting your location…");navigator.geolocation.getCurrentPosition(pos=>{currentLocation={lat:pos.coords.latitude,lng:pos.coords.longitude};clearMarkers();userMarker=new AdvancedMarkerElement({map,position:currentLocation,title:"Your location"});map.panTo(currentLocation);map.setZoom(16);status(`Your location: ${currentLocation.lat.toFixed(5)}, ${currentLocation.lng.toFixed(5)}`);toast("Your location found.")},err=>{console.error(err);toast("Location permission was denied or unavailable. Use localhost/HTTPS for browser geolocation.",true);status("Location unavailable.")},{enableHighAccuracy:true,timeout:12000,maximumAge:30000})
+}
+
+async function mapClick(e){if(!e.latLng)return;const pos={lat:e.latLng.lat(),lng:e.latLng.lng()};try{const r=await geocoder.geocode({location:pos});const address=r.results?.[0]?.formatted_address||"Unknown location";infoWindow.setContent(`<div style="padding:8px;color:#111"><b>${esc(address)}</b><br><small>${pos.lat.toFixed(6)}, ${pos.lng.toFixed(6)}</small><br><br><a target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=${pos.lat},${pos.lng}">Get directions</a></div>`);infoWindow.setPosition(pos);infoWindow.open({map})}catch(e){console.error(e)}}
+
+function openDirections(){
+  const destination=$("searchInput").value.trim();
+  if(destination){window.open(`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(destination)}`,"_blank","noopener");return}
+  if(currentLocation){const dest=prompt("Where do you want to go? Enter a place or address:");if(dest)window.open(`https://www.google.com/maps/dir/?api=1&origin=${currentLocation.lat},${currentLocation.lng}&destination=${encodeURIComponent(dest)}`,"_blank","noopener");return}
+  toast("Enter a destination in the search box first.",true)
+}
+async function shareMap(){const url=location.href;if(navigator.share){try{await navigator.share({title:"ThenukaS.L Maps",text:"Check this map",url})}catch(e){}}else{try{await navigator.clipboard.writeText(url);toast("Page link copied.")}catch(e){toast("Copy failed. Copy the address bar manually.",true)}}}
+function distanceMeters(a,b){if(!a||!b)return Infinity;const lat1=typeof a.lat==="function"?a.lat():a.lat,lng1=typeof a.lng==="function"?a.lng():a.lng,lat2=typeof b.lat==="function"?b.lat():b.lat,lng2=typeof b.lng==="function"?b.lng():b.lng;const R=6371000,dLat=(lat2-lat1)*Math.PI/180,dLng=(lng2-lng1)*Math.PI/180;const x=Math.sin(dLat/2)**2+Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180)*Math.sin(dLng/2)**2;return 2*R*Math.asin(Math.sqrt(x))}
+function hideSuggestions(){$("suggestions").classList.remove("show")}
+
+window.initThenukaMap=initThenukaMap;
+document.getElementById("footerYear").textContent=new Date().getFullYear();
+</script>
+
+<script>
+/* Official-style async loader. The API key is inserted only after the page code above exists. */
+(function(){
+  if(GOOGLE_MAPS_API_KEY.includes("PASTE_YOUR"))return;
+  const s=document.createElement("script");
+  s.async=true;s.defer=true;s.src="https://maps.googleapis.com/maps/api/js?key="+encodeURIComponent(GOOGLE_MAPS_API_KEY)+"&v=weekly&loading=async&callback=initThenukaMap";
+  s.onerror=()=>{status("Google Maps script failed to load. Check your API key and network connection.");toast("Google Maps script failed to load.",true)};
+  document.head.appendChild(s);
+})();
+</script>
+
+<!--
+SETUP:
+1) Google Cloud Console → create/select a project.
+2) Enable Maps JavaScript API, Places API, Places API (New), and Geocoding API.
+3) Create an API key and enable billing for the project.
+4) Replace PASTE_YOUR_GOOGLE_MAPS_API_KEY_HERE above.
+5) Restrict the browser key to your site domain when publishing.
+6) Do NOT open only as file:// for production. Use VS Code Live Server or another local web server.
+-->
+</body>
+</html>
